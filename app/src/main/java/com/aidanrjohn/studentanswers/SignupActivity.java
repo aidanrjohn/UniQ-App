@@ -1,10 +1,8 @@
 package com.aidanrjohn.studentanswers;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.EditText;
 
 import com.android.volley.Request;
@@ -14,25 +12,20 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
-public class MainActivity extends AppCompatActivity {
+public class SignupActivity extends AppCompatActivity {
 
     private String username;
-    private EditText userText;
     private String url = "http://www.aidanrjohn.com/api/app/users";
+    private EditText userText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_signup);
         userText = (EditText)findViewById(R.id.username);
     }
 
-    public void signupPressed(View v) {
-        Intent intent = new Intent(this, SignupActivity.class);
-        startActivity(intent);
-    }
-
-    public void loginPressed(View v) {
+    public void createAccountPressed() {
         username = userText.getText().toString();
         if (username != null) {
             RequestQueue queue = Volley.newRequestQueue(this);
@@ -40,8 +33,6 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(String response) {
                     Log.d("response", response);
-                    Intent intent = new Intent(this, QuestionsActivity.class);
-                    startActivity(intent);
                 }
             }, new Response.ErrorListener() {
                 public void onErrorResponse(VolleyError error) {
@@ -51,4 +42,6 @@ public class MainActivity extends AppCompatActivity {
             queue.add(stringRequest);
         }
     }
+
+
 }

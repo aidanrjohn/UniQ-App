@@ -40,8 +40,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(String response) {
                     Log.d("response", response);
-                    Intent intent = new Intent(this, QuestionsActivity.class);
-                    startActivity(intent);
+                    startQuestions();
                 }
             }, new Response.ErrorListener() {
                 public void onErrorResponse(VolleyError error) {
@@ -50,5 +49,10 @@ public class MainActivity extends AppCompatActivity {
             });
             queue.add(stringRequest);
         }
+    }
+
+    public void startQuestions() {
+        Intent intent = new Intent(this, QuestionsActivity.class);
+        startActivity(intent);
     }
 }

@@ -1,11 +1,13 @@
 package com.aidanrjohn.studentanswers;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 
 public class QuestionsActivity extends Activity {
@@ -20,9 +22,11 @@ public class QuestionsActivity extends Activity {
         setContentView(R.layout.activity_questions);
         questions = new LinkedList<Question>();
         numQuestions = 3; // for testing purposes
-        questions.add(new Question("What is your name?", 30, 2, "arj49", "1/18/17")); // test questions
-        questions.add(new Question("What is your quest?", 31, 3, "arj50", "1/7/17")); // test questions
-        questions.add(new Question("What is your favorite color?", 25, 6, "arj51", "1/6/17")); // test questions
+        LinkedList<Answer> answers1 = new LinkedList<Answer>();
+        answers1.add(new Answer("Glub", "arj50", 12, "1/18/17"));
+        questions.add(new Question("What is your name?", 30, 2, answers1, "arj49", "1/18/17")); // test questions
+        questions.add(new Question("What is your quest?", 31, 3, answers1, "arj50", "1/7/17")); // test questions
+        questions.add(new Question("What is your favorite color?", 25, 6, answers1,  "arj51", "1/6/17")); // test questions
 
         LinearLayout myLayout = (LinearLayout)findViewById(R.id.card_container);
         int i = 1;
@@ -40,7 +44,7 @@ public class QuestionsActivity extends Activity {
             upvoteText.setId(i);
 
             TextView answerText = (TextView)findViewById(R.id.answers_text);
-            answerText.setText(Integer.toString(question.getAnswers()) + " answers");
+            answerText.setText(Integer.toString(question.getNumAnswers()) + " answers");
             answerText.setId(i);
 
             TextView userText = (TextView)findViewById(R.id.user_text);
@@ -53,6 +57,16 @@ public class QuestionsActivity extends Activity {
 
             i++;
         }
+
+
+    }
+
+    public void questionCardPressed(View v) {
+        int index = v.getId();
+        Question question = questions.get(index - 1);
+        Intent intent = new Intent(this, AnswersActivity.class);
+        intent.putExtra("questionObj", question);
+        startActivity(intent);
     }
 
 }

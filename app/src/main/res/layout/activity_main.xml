@@ -6,9 +6,18 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
 
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:id="@+id/uniq_icon"
+        android:src="@drawable/uniq_icon"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40dp"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/uniq_icon"
         android:id="@+id/userText"
         android:text="Username"/>
 

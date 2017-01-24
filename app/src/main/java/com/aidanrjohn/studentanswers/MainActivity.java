@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void loginPressed(View v) {
+        startQuestions();
+        /*
         username = userText.getText().toString();
         if (username != null) {
             RequestQueue queue = Volley.newRequestQueue(this);
@@ -49,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
             });
             queue.add(stringRequest);
         }
+        */
     }
 
     public void startQuestions() {

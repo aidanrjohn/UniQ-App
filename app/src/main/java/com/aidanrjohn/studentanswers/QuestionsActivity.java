@@ -33,18 +33,23 @@ public class QuestionsActivity extends Activity {
 
             TextView questionText = (TextView)findViewById(R.id.question_card_text);
             questionText.setText(question.getQuestion());
+            questionText.setId(i);
 
-            TextView upvoteText = (TextView)findViewById(R.id.upvotes);
-            upvoteText.setText(question.getUpvotes());
+            TextView upvoteText = (TextView)findViewById(R.id.upvotes_text);
+            upvoteText.setText(Integer.toString(question.getUpvotes()));
+            upvoteText.setId(i);
 
-            TextView answerText = (TextView)findViewById(R.id.answers);
-            answerText.setText(question.getAnswers());
+            TextView answerText = (TextView)findViewById(R.id.answers_text);
+            answerText.setText(Integer.toString(question.getAnswers()) + " answers");
+            answerText.setId(i);
 
-            TextView userText = (TextView)findViewById(R.id.user);
+            TextView userText = (TextView)findViewById(R.id.user_text);
             userText.setText(question.getUser());
+            userText.setId(i);
 
-            TextView dateText = (TextView)findViewById(R.id.date);
-            upvoteText.setText(question.getDate());
+            TextView dateText = (TextView)findViewById(R.id.date_text);
+            dateText.setText(question.getDate());
+            dateText.setId(i);
 
             i++;
         }

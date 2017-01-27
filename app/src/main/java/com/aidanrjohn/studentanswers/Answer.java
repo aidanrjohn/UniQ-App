@@ -1,9 +1,11 @@
 package com.aidanrjohn.studentanswers;
 
+import java.io.Serializable;
+
 /**
  * Created by ajohn_000 on 1/23/2017.
  */
-public class Answer {
+public class Answer implements Serializable{
 
     private String answer;
     private String user;

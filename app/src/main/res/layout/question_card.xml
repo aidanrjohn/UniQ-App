@@ -28,7 +28,6 @@
             android:id="@+id/upvotes_text"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_toRightOf="@id/question_card_text"
             android:gravity="right|center_vertical"
             android:layout_marginRight="10dp"
             />

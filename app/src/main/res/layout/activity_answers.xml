@@ -28,16 +28,6 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="fill_parent"
-            android:orientation="vertical"
-            android:id="@+id/answer_card_container"
-            >
-
-        </LinearLayout>
-
-
     </android.support.design.widget.CoordinatorLayout>
 
 </ScrollView>
